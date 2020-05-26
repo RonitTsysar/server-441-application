@@ -1,7 +1,7 @@
 package com.example.server441application.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.example.server441application.model.Contact;
+import com.example.server441application.models.Contact;
 
 /**
  * This interface extends Spring Data JPA’s JpaRepository,

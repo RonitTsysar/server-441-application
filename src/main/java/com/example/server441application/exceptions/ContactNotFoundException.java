@@ -1,4 +1,4 @@
-package com.example.server441application.exception;
+package com.example.server441application.exceptions;
 
 public class ContactNotFoundException extends RuntimeException{
 

@@ -1,4 +1,4 @@
-package com.example.server441application.exception;
+package com.example.server441application.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

@@ -1,4 +1,4 @@
-package com.example.server441application.model;
+package com.example.server441application.models;
 
 import lombok.Data;
 import javax.persistence.Entity;
@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity //is a JPA annotation to make this object ready for storage in a JPA-based data store.
 public class Contact
 {
-    private String name;
+    private String name = "contact without a name";
     private @Id String phoneNumber;
 
     public Contact(){};
