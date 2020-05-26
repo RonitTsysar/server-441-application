@@ -10,16 +10,14 @@ public class ContactService
 {
     private final IContactRepository repository;
 
-    public ContactService(IContactRepository repository) {
+    public ContactService(IContactRepository repository){
         this.repository = repository;
     }
-    public Contact findContactByNumber(String phoneNumber)
-    {
+    public Contact findContactByNumber(String phoneNumber){
         return repository.findById(phoneNumber)
                 .orElseThrow(() -> new ContactNotFoundException(phoneNumber));
     }
-    public Contact addNewContact(Contact newContact)
-    {
+    public Contact addNewContact(Contact newContact){
         return repository.save(newContact);
     }
     public Contact updateContact(Contact newContact,String phoneNumber)
@@ -35,8 +33,7 @@ public class ContactService
                     return repository.save(newContact);
                 });
     }
-    public void deleteContact(String phoneNumber)
-    {
+    public void deleteContact(String phoneNumber) {
         repository.deleteById(phoneNumber);
     }
 }

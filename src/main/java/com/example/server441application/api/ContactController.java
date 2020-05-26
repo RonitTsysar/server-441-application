@@ -1,9 +1,7 @@
 package com.example.server441application.api;
 
-import com.example.server441application.exception.ContactNotFoundException;
 import com.example.server441application.model.Contact;
 import com.example.server441application.service.ContactService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // indicates that the data returned by each method
@@ -30,14 +28,13 @@ public class ContactController
 
     //PUT - update user name for phone number
     @PutMapping("/contacts/{phoneNumber}")
-    Contact replaceContact(@RequestBody Contact newContact, @PathVariable String phoneNumber) {
+    Contact replaceContact(@RequestBody Contact newContact, @PathVariable String phoneNumber){
         return contactService.updateContact(newContact,phoneNumber);
     }
 
     //DELETE – delete phone number
     @DeleteMapping("/contacts/{phoneNumber}")
-    void deleteContact(@PathVariable String phoneNumber)
-    {
+    void deleteContact(@PathVariable String phoneNumber){
         contactService.deleteContact(phoneNumber);
     }
 }

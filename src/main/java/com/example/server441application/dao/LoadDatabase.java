@@ -1,8 +1,7 @@
 package com.example.server441application.dao;
 
-import com.example.server441application.model.Contact;
 import lombok.extern.slf4j.Slf4j;
-
+import com.example.server441application.model.Contact;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
