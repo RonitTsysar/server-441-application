@@ -16,7 +16,7 @@ public class LoadDatabase
     {
         return args -> {
             log.info("Preloading " + repository.save(new Contact("Ronit Tsysar", "0528633998")));
-            log.info("Preloading " + repository.save(new Contact("Asaf Tsysar", "0523646042")));
+            log.info("Preloading " + repository.save(new Contact("Revital Tsysar", "0532349638")));
         };
     }
 }

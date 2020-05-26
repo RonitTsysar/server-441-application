@@ -1,0 +1,19 @@
+For each request the body will write like this:
+JSON - {
+            "name" : "the name",
+            "phoneNumber" : "the number"
+       }
+
+please note that the key is unique.
+
+for GET request -
+localhost:8080/contacts or localhost:8080/contacts/phoneNumber
+
+for POST request -
+localhost:8080/contacts , don't forget to add body
+
+for PUT request -
+localhost:8080/contacts/phoneNumber , don't forget to add body
+
+for DELETE request -
+localhost:8080/contacts/phoneNumber

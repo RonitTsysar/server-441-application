@@ -1,6 +1,7 @@
 package com.example.server441application.services;
 
 import com.example.server441application.dao.IContactRepository;
+import com.example.server441application.exceptions.AlreadyExistsException;
 import com.example.server441application.exceptions.ContactNotFoundException;
 import com.example.server441application.models.Contact;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,12 @@ public class ContactService
                 .orElseThrow(() -> new ContactNotFoundException(phoneNumber));
     }
 
-    public Contact addNewContact(Contact newContact){
+    public Contact addNewContact(Contact newContact)
+    {
+        if(repository.existsById(newContact.getPhoneNumber()))
+        {
+            throw new AlreadyExistsException(newContact.getPhoneNumber());
+        }
         return repository.save(newContact);
     }
 
@@ -42,8 +48,11 @@ public class ContactService
                     return repository.save(newContact);
                 });
     }
-
     public void deleteContact(String phoneNumber) {
+
+        if(!repository.existsById(phoneNumber))
+            throw new ContactNotFoundException(phoneNumber);
+
         repository.deleteById(phoneNumber);
     }
 }
