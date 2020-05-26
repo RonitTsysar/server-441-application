@@ -25,7 +25,7 @@ public class ContactController
         this.assembler = assembler;
     }
 
-    //GET - retrieve all users
+    //GET - retrieve all contacts
     @GetMapping("/contacts")
     public CollectionModel<EntityModel<Contact>> getAllContacts() {
 
@@ -37,9 +37,7 @@ public class ContactController
                 linkTo(methodOn(ContactController.class).getAllContacts()).withSelfRel());
     }
 
-    //GET - retrieve the user
-    // EntityModel - is a generic container from Spring HATEOAS,
-    // that includes not only the data but a collection of links.
+    //GET - retrieve a contact by his phone number
     @GetMapping("/contacts/{phoneNumber}")
     public EntityModel<Contact> findContact(@PathVariable String phoneNumber){
 
@@ -47,19 +45,19 @@ public class ContactController
         return assembler.toModel(contact);
     }
 
-    //POST - add another user and phone
+    //POST - add new contact
     @PostMapping("/contacts")
     Contact newContact(@RequestBody Contact newContact){
         return contactService.addNewContact(newContact);
     }
 
-    //PUT - update user name for phone number
+    //PUT - update contact name by his phone number
     @PutMapping("/contacts/{phoneNumber}")
     Contact replaceContact(@RequestBody Contact newContact, @NonNull @PathVariable String phoneNumber){
         return contactService.updateContact(newContact,phoneNumber);
     }
 
-    //DELETE – delete phone number
+    //DELETE – delete contact
     @DeleteMapping("/contacts/{phoneNumber}")
     void deleteContact(@PathVariable String phoneNumber){
         contactService.deleteContact(phoneNumber);

@@ -17,15 +17,18 @@ public class ContactService
     }
 
     public List<Contact> findAll() {
-        return  repository.findAll();
+        return repository.findAll();
     }
+
     public Contact findContactByNumber(String phoneNumber){
         return repository.findById(phoneNumber)
                 .orElseThrow(() -> new ContactNotFoundException(phoneNumber));
     }
+
     public Contact addNewContact(Contact newContact){
         return repository.save(newContact);
     }
+
     public Contact updateContact(Contact newContact,String phoneNumber)
     {
         return repository.findById(phoneNumber)
@@ -39,6 +42,7 @@ public class ContactService
                     return repository.save(newContact);
                 });
     }
+
     public void deleteContact(String phoneNumber) {
         repository.deleteById(phoneNumber);
     }

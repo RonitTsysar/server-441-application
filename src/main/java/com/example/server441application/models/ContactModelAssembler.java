@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
 public class ContactModelAssembler implements RepresentationModelAssembler<Contact, EntityModel<Contact>>
 {
     @Override
+    // EntityModel - is a generic container from Spring HATEOAS,
+    // that includes not only the data but a collection of links.
     public EntityModel<Contact> toModel(Contact contact) {
 
         return new EntityModel<>(contact,
